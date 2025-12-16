@@ -195,7 +195,6 @@ def main():
     if not midi_files:
         return
 
-    # 1) Dump human-readable txt files, mirroring style subfolders
     print("=== Step 1: Text dumps ===")
     for path in midi_files:
         out_txt_path = make_output_path(
@@ -206,7 +205,6 @@ def main():
         )
         midi_to_text_file(path, out_txt_path)
 
-    # 2) Group files by style = top-level subfolder
     print("\n=== Step 2: Build style-specific Markov models ===")
     style_to_files = defaultdict(list)
     for path in midi_files:
@@ -221,7 +219,6 @@ def main():
         style_models[style] = model
         print(f"    -> states: {len(model)}")
 
-    # 3) For each file, compute surprise curve using its style's model
     print("\n=== Step 3: Compute surprise curves per file ===")
     for path in midi_files:
         rel = os.path.relpath(path, ROOT_DIR)

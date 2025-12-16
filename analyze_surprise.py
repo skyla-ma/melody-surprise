@@ -5,14 +5,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ------- CONFIG: CHANGE THIS IF NEEDED --------
-# Same ROOT_DIR you used before
+
 ROOT_DIR = r"/Users/skyla/Downloads/midi"
 SURPRISE_ROOT = os.path.join(ROOT_DIR, "_surprise")
 
-# Where to save plots
 PLOTS_ROOT = os.path.join(ROOT_DIR, "_plots")
-# ----------------------------------------------
 
 
 def find_surprise_files():
